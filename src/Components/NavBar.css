@@ -1,0 +1,14 @@
+
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+}
+
+.nav-link {
+    color: whitesmoke;
+}
+
+.bg-color-nav {
+    background-color: #68030f;
+}

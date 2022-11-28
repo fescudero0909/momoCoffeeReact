@@ -1,0 +1,20 @@
+
+.cart{
+    display: flex;
+    
+}
+
+.cart-img{
+    width: 40px;
+    align-self: center;
+}
+
+.cart-counter{
+    position: relative;
+    font-size: 15px;
+    color: whitesmoke;
+    top: 18px;
+    bottom: auto;
+    right: auto;
+    left: 4px; 
+}
