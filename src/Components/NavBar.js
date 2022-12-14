@@ -1,13 +1,13 @@
 
 import './NavBar.css'
 import CartWidget from './CartWidget'
-import logo from '../img/logo.png'
+
 
 function NavBar (){
     return (
         <nav className="navbar navbar-expand-lg bg-color-nav">
             <div className="container-fluid">
-                <a data-aos="fade-right" className="navbar-brand col-9 col-lg-5" href="./index.html"><img className="w-50" src={ logo } alt=""/></a>
+                <a data-aos="fade-right" className="navbar-brand col-9 col-lg-5" href="./index.html"><img className="w-50" src={ '../../public/img/logo.png' } alt=""/></a>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>

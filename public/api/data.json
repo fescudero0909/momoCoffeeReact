@@ -4,7 +4,7 @@
         "names": "Bolivia",
         "weight": 250,
         "price": 2000,
-        "img": "../img/cafeBolivia.jpg",
+        "img": "./img/cafeBolivia.jpg",
         "quantity": 1
 
     },
@@ -13,7 +13,7 @@
         "names": "Bolivia Caturra 48",
         "weight": 250,
         "price": 2500,
-        "img": "../img/cafeBoliviaCaturra48.jpg",
+        "img": "./img/cafeBoliviaCaturra48.jpg",
         "quantity": 1
 
     },
@@ -22,7 +22,7 @@
         "names": "Bolivia Caturra 72",
         "weight": 250,
         "price": 2500,
-        "img": "../img/cafeBoliviaCaturra72.jpg",
+        "img": "./img/cafeBoliviaCaturra72.jpg",
         "quantity": 1
 
     },
@@ -31,7 +31,7 @@
         "names": "Bolivia Caturra NAT",
         "weight": 250,
         "price": 1500,
-        "img": "../img/cafeBoliviaCaturraNAT.jpg",
+        "img": "./img/cafeBoliviaCaturraNAT.jpg",
         "quantity": 1
 
     },
@@ -40,7 +40,7 @@
         "names": "Brasil",
         "weight": 250,
         "price": 3000,
-        "img": "../img/cafeBrasil.jpg",
+        "img": "./img/cafeBrasil.jpg",
         "quantity": 1
 
     },
@@ -49,7 +49,7 @@
         "names": "Colombia Volcanico",
         "weight": 250,
         "price": 3500,
-        "img": "../img/cafeColombiaVolcanico.jpg",
+        "img": "./img/cafeColombiaVolcanico.jpg",
         "quantity": 1
 
     },
@@ -58,7 +58,7 @@
         "names": "Colombia El Corazón",
         "weight": 250,
         "price": 3500,
-        "img": "../img/cafeColombiaElCorazon.jpg",
+        "img": "./img/cafeColombiaElCorazon.jpg",
         "quantity": 1
     }
         

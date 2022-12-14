@@ -9,7 +9,7 @@ function ItemListContainer ({greeting}){
     const [cards, setCards] = useState([]);
 
     useEffect(() =>{
-        fetch("./data.json")
+        fetch("./api/data.json")
         .then ((response) => response.json())
         .then (data =>{
             setCards(data)
