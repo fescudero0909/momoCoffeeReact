@@ -1,11 +1,18 @@
 
 import './Cards.css'
+import  React from "react";
 
-function Cards (){
+
+
+function Cards ({card}){
+
     return (
-        <div className="tarjetaProducto">
-            <img className="imgProducto img-fluid col-3 m-3"  src="https://res.cloudinary.com/dugnhebhz/image/upload/v1669384860/cafeBoliviaCaturra48_glmmpc.jpg"  alt=''/>
-        </div>
+        <div className="tarjetaProducto col-12">
+            <p className="producto">{card.names}</p>
+            <img className="imgProducto img-fluid col-12" alt="">{card.img} </img>
+            <p className="precio col-5 text-center mb-0">$ {card.price}</p> 
+        </div> 
+            
     );
 } 
 
