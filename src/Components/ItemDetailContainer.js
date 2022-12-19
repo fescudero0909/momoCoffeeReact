@@ -8,20 +8,20 @@ import { useParams } from "react-router-dom";
 
 const ItemDetailContainer = () => {
   
-    const [productos, setProductos] = useState([]);
-    let {id} = useParams();
+    const [producto, setProducto] = useState({});
+    let {productId} = useParams();
 
     useEffect((productId) =>{
         axios
         .get("./api/data.json")
         .then ((resolve) =>  resolve.data.find((producto) => producto.id === parseInt(productId)))
-        .then (setProductos(productId))
+        .then (setProducto(productId))
         
         
-    }, [id] )// [] es para que se renderice una sola vez
+    }, [productId] )// [] es para que se renderice una sola vez
   
     return (
-        <ItemDetail key={productos.id}  productos={productos}/>
+        <ItemDetail key={producto.id}  producto={producto}/>
         
   )
 }
