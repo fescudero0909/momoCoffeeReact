@@ -4,8 +4,10 @@
         "names": "Bolivia",
         "weight": 250,
         "price": 2000,
-        "img": "./img/cafeBolivia.jpg",
-        "quantity": 1
+        "img": "../img/cafeBolivia.jpg",
+        "detail": "Sabor clásico y limpio, con una delicada y brillante acidez y una dulce calidad aromática con notas frutales que incluyen manzana, pera, mandarina, limón y albaricoque.",
+        "quantity": 1,
+        "category": "Cafes"
 
     },
     {
@@ -13,8 +15,10 @@
         "names": "Bolivia Caturra 48",
         "weight": 250,
         "price": 2500,
-        "img": "./img/cafeBoliviaCaturra48.jpg",
-        "quantity": 1
+        "img": "../img/cafeBoliviaCaturra48.jpg",
+        "detail":"Es un café delicioso y muy fácil de tomar. En gran medida se debe al elevado dulzor en taza y al cuerpo untuoso, muy atractivo que tiene. Además está acompañado de un aroma dulce como a caramelo con notas cítricas como a cáscaras de naranja que también encontramos en el retrogusto.",
+        "quantity": 1,
+        "category": "Cafes"
 
     },
     {
@@ -22,8 +26,10 @@
         "names": "Bolivia Caturra 72",
         "weight": 250,
         "price": 2500,
-        "img": "./img/cafeBoliviaCaturra72.jpg",
-        "quantity": 1
+        "img": "../img/cafeBoliviaCaturra72.jpg",
+        "detail":"Es un café muy fragante y con aroma a flor de azahar, muy elegante. En boca impacta con una acidez alta, complementada por mucho dulzor y un cuerpo medio sedoso. Es muy complejo con notas dulces a miel, chocolate, toffee pero también notas frutales que recuerdan a frutas de hueso como durazno y ciruelas.",
+        "quantity": 1,
+        "category": "Cafes"
 
     },
     {
@@ -31,8 +37,10 @@
         "names": "Bolivia Caturra NAT",
         "weight": 250,
         "price": 1500,
-        "img": "./img/cafeBoliviaCaturraNAT.jpg",
-        "quantity": 1
+        "img": "../img/cafeBoliviaCaturraNAT.jpg",
+        "detail":"Es un café, muy frutal/floral en todos los aspectos, aroma, fragancia y también en boca. Tiene una baja acidez, pero que combina muy bien con el dulzor extremo y un cuerpo licoroso. El retrogusto es prolongado, dulce y frutal, parecido al que dejan algunos vinos blancos. En boca tiene notas a frutas tropicales, miel y duraznos.",
+        "quantity": 1,
+        "category": "Cafes"
 
     },
     {
@@ -40,26 +48,63 @@
         "names": "Brasil",
         "weight": 250,
         "price": 3000,
-        "img": "./img/cafeBrasil.jpg",
-        "quantity": 1
+        "img": "../img/cafeBrasil.jpg",
+        "detail": "El café de Brasil corresponde a la variedad arábica, por ello predomina el sabor dulzón, similar a los cafés procedentes de África, aunque sin la acidez característica de estos. El café de Brasil se caracteriza por su aroma suave y fino y cuerpo alto.",
+        "quantity": 1,
+        "category": "Cafes"
 
     },
+
     {
         "id": 6,
         "names": "Colombia Volcanico",
         "weight": 250,
         "price": 3500,
-        "img": "./img/cafeColombiaVolcanico.jpg",
-        "quantity": 1
-
+        "img": "../img/cafeColombiaVolcanico.jpg",
+        "detail":"El origen volcánico de sus suelos y las elevadas alturas provoca que el café de Colombia sea un café suave, de taza limpia, con acidez y cuerpo medio/alto, y aroma pronunciado y completo que nunca defrauda.",
+        "quantity": 1,
+        "category": "Cafes"
     },
+
     {
         "id": 7,
         "names": "Colombia El Corazón",
         "weight": 250,
         "price": 3500,
-        "img": "./img/cafeColombiaElCorazon.jpg",
-        "quantity": 1
+        "img": "../img/cafeColombiaElCorazon.jpg",
+        "detail":"Este café está compuesto por granos de las variedades Caturra, Colombia y Castillo provenientes de pequeños productores del departamento de Antioquia a 1500 – 1780 msnm. Los frutos fueron procesados, como es tradición en Colombia, mediante el proceso de lavado y luego secados al sol.",
+        "quantity": 1,
+        "category": "Cafes"
+    },
+            
+    {
+        "id": 8,
+        "names": "Tamper",
+        "price": 4000,
+        "img": "../img/tamper.jpg",
+        "detail":"Una de las herramientas que caracteriza a los baristas es el compactador de café o también conocido como Tamper, esta herramienta permite presionar, prensar y compactar manualmente el café molido en el filtro de la máquina durante la preparación del café espresso.",
+        "quantity": 1,
+        "category": "Accesorios"
+
+    },
+    {
+        "id": 9,
+        "names": "Jarra",
+        "price": 5000,
+        "img": "../img/jarra.jpg",
+        "detail":"Resistente a altas temperaturas, sin embargo al ser un metal no es recomendable colocar en el microondas.",
+        "quantity": 1,
+        "category": "Accesorios"
+
+    },
+    {
+        "id": 10,
+        "names": "Distribuidor de Aguja",
+        "price": 3200,
+        "img": "../img/distribuidorDeAguja.jpg",
+        "detail":"Ayuda a distribuir mejor los granos de café para hacer espresso más consistente.",
+        "quantity": 1,
+        "category": "Accesorios"
+
     }
-        
 ]

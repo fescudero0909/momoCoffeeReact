@@ -9,7 +9,9 @@ const Counter = () =>{
     } 
 
     const handleClickRest = () =>{
-        setAdd(add - 1)
+        if (add > 0) {
+            setAdd(add - 1)
+        }
     } 
     
     
