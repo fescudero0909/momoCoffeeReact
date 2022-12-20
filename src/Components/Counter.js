@@ -16,7 +16,7 @@ const Counter = () =>{
     
     
     return(
-        <div className="counter col-3 text-center">
+        <div className="counter col-12 text-center">
             <button className="counterBtn m-2" onClick= { handleClickRest }>-</button>
             {add}
             <button className="counterBtn m-2" onClick= { handleClickAdd }>+</button>          

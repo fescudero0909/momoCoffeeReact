@@ -1,7 +1,7 @@
 [
     {
-        "id": 1,
-        "names": "Bolivia",
+        "id": "1",
+        "name": "Bolivia",
         "weight": 250,
         "price": 2000,
         "img": "../img/cafeBolivia.jpg",
@@ -11,8 +11,8 @@
 
     },
     {
-        "id": 2,
-        "names": "Bolivia Caturra 48",
+        "id": "2",
+        "name": "Bolivia Caturra 48",
         "weight": 250,
         "price": 2500,
         "img": "../img/cafeBoliviaCaturra48.jpg",
@@ -22,8 +22,8 @@
 
     },
     {
-        "id": 3,
-        "names": "Bolivia Caturra 72",
+        "id": "3",
+        "name": "Bolivia Caturra 72",
         "weight": 250,
         "price": 2500,
         "img": "../img/cafeBoliviaCaturra72.jpg",
@@ -33,8 +33,8 @@
 
     },
     {
-        "id": 4,
-        "names": "Bolivia Caturra NAT",
+        "id": "4",
+        "name": "Bolivia Caturra NAT",
         "weight": 250,
         "price": 1500,
         "img": "../img/cafeBoliviaCaturraNAT.jpg",
@@ -44,8 +44,8 @@
 
     },
     {
-        "id": 5,
-        "names": "Brasil",
+        "id": "5",
+        "name": "Brasil",
         "weight": 250,
         "price": 3000,
         "img": "../img/cafeBrasil.jpg",
@@ -56,8 +56,8 @@
     },
 
     {
-        "id": 6,
-        "names": "Colombia Volcanico",
+        "id": "6",
+        "name": "Colombia Volcanico",
         "weight": 250,
         "price": 3500,
         "img": "../img/cafeColombiaVolcanico.jpg",
@@ -67,8 +67,8 @@
     },
 
     {
-        "id": 7,
-        "names": "Colombia El Corazón",
+        "id": "7",
+        "name": "Colombia El Corazón",
         "weight": 250,
         "price": 3500,
         "img": "../img/cafeColombiaElCorazon.jpg",
@@ -78,8 +78,8 @@
     },
             
     {
-        "id": 8,
-        "names": "Tamper",
+        "id":"8",
+        "name": "Tamper",
         "price": 4000,
         "img": "../img/tamper.jpg",
         "detail":"Una de las herramientas que caracteriza a los baristas es el compactador de café o también conocido como Tamper, esta herramienta permite presionar, prensar y compactar manualmente el café molido en el filtro de la máquina durante la preparación del café espresso.",
@@ -88,8 +88,8 @@
 
     },
     {
-        "id": 9,
-        "names": "Jarra",
+        "id": "9",
+        "name": "Jarra",
         "price": 5000,
         "img": "../img/jarra.jpg",
         "detail":"Resistente a altas temperaturas, sin embargo al ser un metal no es recomendable colocar en el microondas.",
@@ -98,8 +98,8 @@
 
     },
     {
-        "id": 10,
-        "names": "Distribuidor de Aguja",
+        "id": "10",
+        "name": "Distribuidor de Aguja",
         "price": 3200,
         "img": "../img/distribuidorDeAguja.jpg",
         "detail":"Ayuda a distribuir mejor los granos de café para hacer espresso más consistente.",

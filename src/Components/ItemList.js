@@ -3,7 +3,7 @@ import Item from './Item'
 
 const ItemList = ({productos}) => {
   return (
-    <div className='row just'>
+    <div className='row justify-content-center'>
         {productos.map((producto) =>(
             <Item producto={producto} key={producto.id} />
         

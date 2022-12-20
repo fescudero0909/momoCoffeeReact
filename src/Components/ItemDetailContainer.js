@@ -1,29 +1,30 @@
 import  React, {useEffect, useState}  from "react";
-import axios from 'axios';
+//import axios from 'axios';
 import ItemDetail from "./ItemDetail";
 import { useParams } from "react-router-dom";
+import {getProductById} from "./function"
 
 
 
 
 const ItemDetailContainer = () => {
-  
-    const [producto, setProducto] = useState({});
-    let {productId} = useParams();
 
-    useEffect((productId) =>{
-        axios
-        .get("./api/data.json")
-        .then ((resolve) =>  resolve.data.find((producto) => producto.id === parseInt(productId)))
-        .then (setProducto(productId))
-        
-        
-    }, [productId] )// [] es para que se renderice una sola vez
-  
+    const [producto, setProducto] = useState({});
+    let {id} = useParams();
+
+    useEffect(() => {
+        getProductById(id)
+            .then((producto) => setProducto(producto))
+        }, [id]);
+
+    
+
     return (
-        <ItemDetail key={producto.id}  producto={producto}/>
+        <>
+            <ItemDetail key='' producto={producto}/>
+        </>
         
-  )
+    )
 }
 
 export default ItemDetailContainer

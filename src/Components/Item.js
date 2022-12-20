@@ -9,10 +9,11 @@ function Item ({producto}){
     return (
         
         <div className="tarjetaProducto col-3 align-items-center">
-            <p className="producto">{producto.names}</p>
-            <img src={producto.img} alt={producto.names} className="imgProducto img-fluid col-12"/>
+            <p className="producto">{producto.name}</p>
+            <img src={producto.img} alt={producto.name} className="imgProducto img-fluid col-12"/>
+            <p>Categoria: {producto.category}</p>
             <p className="precio col-5 text-center mb-0">$ {producto.price}</p>
-            <Link to={`/detail/${producto.id}`}><button className='btn'>Ver detalle</button></Link> 
+            <Link to={`/item/${producto.id}`}><button className='btn'>Ver detalle</button></Link> 
             
         </div>
 

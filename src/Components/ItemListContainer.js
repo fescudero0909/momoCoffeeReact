@@ -1,9 +1,10 @@
 
 import  React, {useEffect, useState}  from "react";
-import axios from 'axios';
 import ItemList from "./ItemList";
-
-
+import { useParams } from "react-router-dom";
+import { getProducts } from "./function";
+import { Link } from 'react-router-dom';
+import './ItemListContainer.css'
 
 
 
@@ -11,33 +12,21 @@ function ItemListContainer ({greeting}){
     
     //para obtener los datos de la api (puedo usarr axios o fetch)
     const [productos, setProductos] = useState([]);
-    
+    let { categoryId } = useParams();
 
-
-    useEffect((categoryId) =>{
-        axios
-        .get("./api/data.json")
-        .then ((res) => res.categoryId ? res.data.filter((producto) => producto.category === categoryId) : setProductos(res.data))
-
-    }, [] )// [] es para que se renderice una sola vez
-
-    
-//     useEffect(() =>{
-//       fetch("./api/data.json")
-//       .then ((response) => response.json())
-//       .then (data =>{
-//           setCards(data.products)
-//       });
-//   }, [] )
+    useEffect(() => {
+        getProducts(categoryId)
+            .then((productos) => setProductos(productos))
+        }, [categoryId]);// [] es para que se renderice una sola vez
 
     
     return (
-        <div className= 'list_container container-fluid'>
+        <div className= 'list_container container-fluid text-center'>
             
             <h1>{ greeting }</h1>
-            <div className="row">
-                <button className="col-3">Cafes</button>
-                <button className="col-3">Accesorios</button>
+            <div className="">
+                <Link to={"/category/Cafes"}><button className="btnInicio col-3">Cafes</button></Link>
+                <Link to={"/category/Accesorios"}><button className="col-3">Accesorios</button></Link>
             </div>
             <ItemList  productos={productos}/>
             

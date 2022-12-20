@@ -2,9 +2,9 @@
 import './NavBar.css'
 import CartWidget from './CartWidget'
 import { CiCoffeeBean } from 'react-icons/ci'
-import { Link } from 'react-router-dom';
+import {  Link } from 'react-router-dom';
 
-function NavBar (producto){
+function NavBar (){
     return (
         <nav className="navbar navbar-expand-lg bg-color-nav">
             <div className="container-fluid">
@@ -16,13 +16,16 @@ function NavBar (producto){
                 </Link>
                 <div className="collapse navbar-collapse justify-content-end" id="navbarNav">
                     <ul className="navbar-nav align-items-center">
-                        <li className="nav-item">
-                            <a className="nav-link active" aria-current="page" href="./index.html">Productos <CiCoffeeBean /></a>
-                        </li>
-                        
-                        <li className="nav-item">
-                            <a className="nav-link" href="#container-cards">Accesorios</a>
-                        </li>
+                        <Link to={"/category/Cafes"}>
+                            <li className="nav-item">
+                                <a className="nav-link active" aria-current="page" href="./index.html">Cafes <CiCoffeeBean /></a>
+                            </li>
+                        </Link>
+                        <Link to={"/category/Accesorios"}>
+                            <li className="nav-item">
+                                <a className="nav-link" href="#container-cards">Accesorios</a>
+                            </li>
+                        </Link>
                         
                         <CartWidget />
                     </ul>
