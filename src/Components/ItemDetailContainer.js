@@ -1,8 +1,8 @@
-import  React, {useEffect, useState}  from "react";
-//import axios from 'axios';
+import  React, {useEffect, useState}  from "react"; 
 import ItemDetail from "./ItemDetail";
 import { useParams } from "react-router-dom";
-import {getProductById} from "./function"
+import { doc, getDoc } from "firebase/firestore";
+import {db} from "../db/firebase-config";
 
 
 
@@ -11,17 +11,29 @@ const ItemDetailContainer = () => {
 
     const [producto, setProducto] = useState({});
     let {id} = useParams();
-
-    useEffect(() => {
-        getProductById(id)
-            .then((producto) => setProducto(producto))
-        }, [id]);
-
     
+    const getProduct = async (id) =>{
+        const docRef = doc(db, "productos", id);
+        const docSnap = await getDoc(docRef);
+
+        if (docSnap.exists()) {
+            setProducto(docSnap.data());
+        } else {
+            console.log('No existe')
+        }
+    }
+
+    useEffect(() =>{
+        getProduct (id)
+        
+    }, [id])
+
+
 
     return (
         <>
-            <ItemDetail key='' producto={producto}/>
+            <ItemDetail key='' producto={producto}  />
+            
         </>
         
     )

@@ -7,10 +7,12 @@
 .cart-img{
     width: 40px;
     align-self: center;
+    font-size: 100px;
+    color: whitesmoke;
 }
 
 .cart-counter{
-    position: relative;
+    position:relative;
     font-size: 15px;
     color: whitesmoke;
     top: 18px;
