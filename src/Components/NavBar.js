@@ -2,7 +2,8 @@
 import './NavBar.css'
 import CartWidget from './CartWidget'
 import { CiCoffeeBean } from 'react-icons/ci'
-import {  Link } from 'react-router-dom';
+import {AiOutlinePlusCircle} from 'react-icons/ai'
+import { Link } from 'react-router-dom';
 
 function NavBar (){
     return (
@@ -27,7 +28,13 @@ function NavBar (){
                             </li>
                         </Link>
                         
-                        <CartWidget />
+                        <Link to={"create"} >
+                            <AiOutlinePlusCircle color='white' /> 
+                        </Link>
+
+                        <Link to={"cart"} >
+                            <CartWidget />
+                        </Link>
                     </ul>
                 </div>
             </div>

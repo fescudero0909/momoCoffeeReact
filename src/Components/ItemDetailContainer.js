@@ -1,13 +1,16 @@
-import  React, {useEffect, useState}  from "react"; 
+import  React, {useContext, useEffect, useState}  from "react"; 
 import ItemDetail from "./ItemDetail";
 import { useParams } from "react-router-dom";
 import { doc, getDoc } from "firebase/firestore";
 import {db} from "../db/firebase-config";
+import { CartContext } from "../context/CartContext";
 
 
 
 
 const ItemDetailContainer = () => {
+
+    const {addToCart} = useContext(CartContext)
 
     const [producto, setProducto] = useState({});
     let {id} = useParams();
@@ -32,7 +35,7 @@ const ItemDetailContainer = () => {
 
     return (
         <>
-            <ItemDetail key='' producto={producto}  />
+            <ItemDetail key='' producto={producto} addToCart ={addToCart} />
             
         </>
         

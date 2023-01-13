@@ -4,29 +4,33 @@ import ItemList from "./ItemList";
 import { useParams } from "react-router-dom";
 import { Link } from 'react-router-dom';
 import './ItemListContainer.css'
-import { collection, getDocs} from "firebase/firestore";
+import {  collection,  getDocs, query, where} from "firebase/firestore";
 import {db} from "../db/firebase-config";
 
 
 function ItemListContainer ({greeting}){
     
     const [productos, setProductos] = useState([]);
-    let { category } = useParams();
+    let { categoryId } = useParams();
     const [loading, setLoading] = useState(true);
     const productsCollectionRef = collection(db, "productos");
+    const filter = query(productsCollectionRef, categoryId ? where("category", "==", categoryId) : null);
+    
 
-    const getProducts = async (category) =>{
-        const data = await getDocs(productsCollectionRef)
+    const getProducts = async () =>{
+        const data = await getDocs(filter)
         setLoading(false)
         setProductos(data.docs.map(doc => ({...doc.data(), id: doc.id}))); 
         
     }
 
     
+
+    
     useEffect (() =>{
-        getProducts(category);
-        
-    }, [category])
+        getProducts(categoryId);
+
+    }, [categoryId])
     
     
         

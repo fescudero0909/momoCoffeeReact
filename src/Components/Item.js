@@ -5,8 +5,8 @@ import { Link } from 'react-router-dom';
 
 
 
-
 function Item ({producto}){
+    
 
     return (
         
