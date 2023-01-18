@@ -1,42 +1,52 @@
-import  React, {useContext, useEffect, useState}  from "react"; 
+import  React, { useEffect, useState}  from "react"; 
 import ItemDetail from "./ItemDetail";
 import { useParams } from "react-router-dom";
 import { doc, getDoc } from "firebase/firestore";
 import {db} from "../db/firebase-config";
-import { CartContext } from "../context/CartContext";
-
-
 
 
 const ItemDetailContainer = () => {
-
-    const {addToCart} = useContext(CartContext)
-
-    const [producto, setProducto] = useState({});
-    let {id} = useParams();
     
-    const getProduct = async (id) =>{
+    const [producto, setProducto] = useState({});
+    const [loading, setLoading] = useState(true);
+
+    const {id} = useParams();
+
+    useEffect(() => {
+        setLoading(true)
         const docRef = doc(db, "productos", id);
-        const docSnap = await getDoc(docRef);
-
-        if (docSnap.exists()) {
-            setProducto(docSnap.data());
-        } else {
-            console.log('No existe')
-        }
-    }
-
-    useEffect(() =>{
-        getProduct (id)
         
+        getDoc(docRef).then(response => {
+            const producto = {id: response.id, ...response.data()}
+            setProducto(producto)
+        }).finally(() => {
+            setLoading(false)
+        })
+
+        return (() => {
+            setProducto({})
+        })
     }, [id])
 
-
-
+    
     return (
         <>
-            <ItemDetail key='' producto={producto} addToCart ={addToCart} />
+            {
+                loading ? (
+                    <spinner>
+                        <div class="spinner-grow" role="status">
+                            <span class="visually-hidden">Loading...</span>
+                        </div>
+                    </spinner>)
+                : producto ? 
+                    <ItemDetail key={producto.id} producto={producto} />
+                : (<h2>Producto no Encontrado</h2>
+            )}
             
+            
+            
+            {/* <ItemDetail key={producto.id} producto={producto} loading={loading}  /> */}
+        
         </>
         
     )

@@ -2,7 +2,6 @@
 import './NavBar.css'
 import CartWidget from './CartWidget'
 import { CiCoffeeBean } from 'react-icons/ci'
-import {AiOutlinePlusCircle} from 'react-icons/ai'
 import { Link } from 'react-router-dom';
 
 function NavBar (){
@@ -17,21 +16,16 @@ function NavBar (){
                 </Link>
                 <div className="collapse navbar-collapse justify-content-end" id="navbarNav">
                     <ul className="navbar-nav align-items-center">
-                        <Link to={"/category/Cafes"}>
+                        <Link to={"/category/Cafes"} className="btn" >
                             <li className="nav-item">
-                                <a className="nav-link" aria-current="page" href="./">Cafes <CiCoffeeBean /></a>
+                                <a className="nav-link" aria-current="page" href="./">CAFES <CiCoffeeBean /></a>
                             </li>
                         </Link>
-                        <Link to={"/category/Accesorios"}>
+                        <Link to={"/category/Accesorios"} className="btn">
                             <li className="nav-item">
-                                <a className="nav-link" href="#container-cards">Accesorios</a>
+                                <a className="nav-link" href="#container-cards">ACCESORIOS</a>
                             </li>
                         </Link>
-                        
-                        <Link to={"create"} >
-                            <AiOutlinePlusCircle color='white' /> 
-                        </Link>
-
                         <Link to={"cart"} >
                             <CartWidget />
                         </Link>

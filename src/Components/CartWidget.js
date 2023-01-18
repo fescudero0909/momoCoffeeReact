@@ -1,18 +1,21 @@
 
 import './CartWidget.css'
 import {CiShoppingCart} from 'react-icons/ci'
-
+import { Link } from 'react-router-dom';
+import { useContext } from 'react';
+import { CartContext } from '../context/CartContext';
 
 const CartWidget = () =>{
 
+    const { getQuantity} = useContext(CartContext)
 
     return (
-        
-            <div className='cart'>
-                <a href="./"><CiShoppingCart className='cart-img'/></a>          
-                <p className='cart-counter'>3</p>
-            </div>
-       
+            <Link to="/cart" className="btn">
+                <div className='cartWidget'>
+                    <a href="./"><CiShoppingCart className='cartImg'/></a>          
+                    <span className='counterWidget '>{getQuantity()}</span>    
+                </div>
+            </Link>
     
     );
 }

@@ -1,3 +1,52 @@
+MOMO CAFETERIA
+
+Tienda e-commerce de venta de granos de cafe de alta calidad provenientes de distintas partes del mundo y venta de accesorios para baristas.
+
+Es un proyecto realizado con la modalidad SPA, donde permite al usuario interactuar con los productos que se ofrecen y ver en detalle las características y posteriormente proceder a la compra.
+
+Es una versión 0.1.0 incompleta - paso siguiente: crear el servicio de pago
+
+
+Este proyecto se realizo con Create React App
+
+En el proyecto puede correrlo con:
+
+- npm run start ó
+- Abrir [http://localhost:3000](http://localhost:3000) para verlo en el navegador.
+
+
+Construidos con las siguientes herramientas:
+- CSS
+- JS
+- react-dom: "^18.2.0"
+- react-icons: "^4.7.1"
+- react-router-dom: "^6.4.5"
+- Boostrap
+- SweetAlert2
+- Firebase
+
+
+Autor:
+
+- Facundo Escudero
+
+Licencia:
+
+- Proyecto bajo licencia de Facundo Escudero
+
+Expresiones de gratitud:
+
+-Agradecimiento
+
+- Al equipo de  tutores y profesor de Coderhouse
+- Si desea puede donar a la siguiente billetera BTC: bc1q85vwanq30vxy6xvpl6khtt5h79h4h9n6qvtmun
+
+
+
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

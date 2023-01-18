@@ -1,0 +1,14 @@
+.btnContact{
+    justify-content: center;
+    border: 1px solid #d9d9d9;
+    padding: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    background: #3e8064;
+    color: #fff;
+    margin-top: 10px;
+    width: 200px;
+    height: 70px;
+    text-size-adjust: 100%;
+    text-align: center;
+}

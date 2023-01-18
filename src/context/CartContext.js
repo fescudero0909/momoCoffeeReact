@@ -1,91 +1,83 @@
-import { addDoc, collection, doc, getDoc, getDocs } from "firebase/firestore";
 import React, {createContext, useState} from "react";
-import { db } from "../db/firebase-config";
+import Swal from "sweetalert2";
 
-export const CartContext = createContext({});
-
-const {Provider} = CartContext;
-
-// //Creo un hook y es el que voy a usar para importar el contexto en los componentes
-// export const useCartContext = () => useContext(CartContext);
+export const CartContext = createContext();
 
 
-
-export const CartProvider = ({defaultValue = [], children}) => {
+export const CartProvider = ({ children }) => {
     
-    const [cart, setCart] = useState(defaultValue);
-    const cartCollectionRef = collection(db, "cart");
-
-    const getCart = async () => {
-    const data = await getDocs(cartCollectionRef);
-        setCart(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
-    };
+    const [cart, setCart] = useState([]);
     
-    //vaciar carrito
-    const clearCart = () => {
-        setCart([]);
-    };
-
-    //agregar productos al carrito
-    const addToCart = async (id, quantity) => {
+    //incorporar el item al carrito
+    const addToCart = (item, cantidad) => {
         
-        if(isInCart(id)) {//si el producto ya esta en el carrito, sumarle 1 a la cantidad
-            const newCart = [...cart];//creo una copia del carrito
-            for (const element of newCart){//recorro la copia del carrito
-                if (element.id === id){//si el id del producto es igual al id del producto que quiero agregar
-                    element.quantity = element.quantity + quantity;//sumo la cantidad que ya tenia con la cantidad que quiero agregar
-                }
-            }
-            setCart(newCart);//actualizo el carrito
-        }else{
-        
-            const docRef  = doc(db, "productos", id);
-            const docSnap = await getDoc(docRef);
-            const producto = docSnap.data();
-            await addDoc(cartCollectionRef, producto).then(({ id }) => {
-                console.log(`Documento con ID ${id} agregado al carrito`);
-                });
-            setCart([...cart, producto]);
+        if (isInCart(item.id)) {
+            
+            sumarCantidad(item.id,cantidad)
+            
+        } else {    
+            setCart([...cart, {...item, cantidad}])
         }
-}
+    };
     
-    //encontrar productos en el carrito
+    
+    
+    //verificar si el item ya está en el carrito (true/false)
     const isInCart = (id) => {
-        return cart.find((producto) => producto.id === id);
-    };
-    
-
-    
-    //eliminar productos del carrito
-    const remoFromCart = (id) => {
-        const newCart = [...cart].filter((producto) => producto.id !== id);
-        setCart(newCart);
-    };
-
-
-    // //contar productos en el carrito        
-    // const getCartCount = () => {
-    //     return cart.reduce((acc, producto) => acc + producto.quantity, 0);
-    // };
-    
-    // //sumar precios de productos en el carrito
-    // const getCartTotal = () => {
-    //     return cart.reduce((acc, producto) => acc + producto.price * producto.quantity,0);
-    // };
-    
-    const context ={
-        cart,
-        getCart,
-        clearCart,
-        addToCart,
-        isInCart,
-        remoFromCart,
+        return cart.some (producto => producto.id === id)
     }
     
+    //sumar la cantidad de items en el carrito cuando coinciden los id
+    const sumarCantidad = (id,cantidad) => {
+        cart.map(
+            (producto) => producto.id === id ? (producto.cantidad += cantidad) : producto
+            )
+        }
+        
+        //vaciar el carrito
+        const clearCart = () => {
+            setCart([]);
+        }
+        
+        //eliminar un item del carrito
+        const removeItem = (id) => {
+            setCart(cart.filter((producto) => producto.id !== id))
+            Swal.fire({
+                position: 'center',
+                icon: 'error',
+                title: 'Producto eliminado del carrito',
+                showConfirmButton: false,
+                timer: 1000
+            })
+        }
+        
+    //obtener la cantidad de items en el carrito
+    const getQuantity = () => {
+        return cart.reduce((acum, producto) => acum + producto.cantidad, 0)
+    }
+
+        //obterner el total de la compra
+    const getTotal =() => {
+        return cart.reduce((acum, producto) => acum + producto.price * producto.cantidad, 0)
+    }
+
+    
     return( 
-        <Provider value={{context}}>
+        <CartContext.Provider value={
+            {
+                cart, 
+                addToCart, 
+                isInCart, 
+                clearCart,
+                sumarCantidad,
+                removeItem,
+                getTotal,
+                getQuantity,
+            }}>
+            
             {children}
-        </Provider>
+
+        </CartContext.Provider>
     )
 
 };  

@@ -18,6 +18,7 @@ const ItemList = ({productos, loading}) => {
         ))}
     </div>
   )
+  
 }
 
 export default ItemList

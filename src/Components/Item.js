@@ -14,7 +14,7 @@ function Item ({producto}){
             <p className="producto">{producto.name}</p>
             <img className="imgProducto img-fluid col-12" src={producto.img} alt='' />
             <p>Categoria: {producto.category}</p>
-            <p className="precio col-5 text-center mb-0">$ {producto.price}</p>
+            <p className="precio col-12 text-center mb-0">$ {producto.price}</p>
             <Link to={`/item/${producto.id}`}><button className='btn'>Ver detalle</button></Link> 
             
         </div>
