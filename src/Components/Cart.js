@@ -12,7 +12,7 @@ import { BsArrow90DegLeft } from 'react-icons/bs';
 
 function Cart() {
     const {cart, removeItem, getTotal, clearCart} = useContext(CartContext)
-    const {contact} = ContactForm()
+    
     
 
     // creo estado para procesar orden
@@ -142,20 +142,8 @@ function Cart() {
                     {(!processing && cart.length>0) &&<Link to="/"><button className='btnSeguirComprandoCart'>Seguir comprando</button> </Link>}
                     {(!processing && cart.length>0) &&<Link to=""><button className='btnFin' onClick={()=> confirmOder()} >Finalizar compra</button> </Link>}
                 </div>
-                {/* {(!processing && (contact.name !=='' && contact.email !=='' && contact.phone !=='' && contact.address !=='' && contact.message !=='' )) && 
-                    <div className='col-12'>
-                        <h4>Nombre: {contact.name}</h4>
-                        <h4>email: {contact.email}</h4>
-                        <h4>Teléfono: {contact.phone}</h4>
-                        <h4>Dirección: {contact.address}</h4>
-                        <h4>Mensaje: {contact.message}</h4>
-                        <button onClick={() => setContact({name: '', email: '', phone: '', address: '', message: ''})} className='btn' >Continuar</button>                        
-                    </div>
-                }
-                {(!processing && cart.length)>0 && <div buttonLabelShow={(contact.name !=='' && contact.email !=='' && contact.phone !=='' && contact.address !=='' && contact.message !=='')} className='col-12'>
-                                                        <ContactForm setContact={setContact} />
-                                                    </div>}
-                 */}
+                {/* {(!processing && cart.length>0) &&<Link to="/checkout"><button className='btnSeguirComprandoCart'>Finalizar</button> </Link>} */}
+                
             </footer>
         </div>
     )

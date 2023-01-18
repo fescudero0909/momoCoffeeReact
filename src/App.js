@@ -27,7 +27,7 @@ function App() {
             <Route path="/category/:categoryId" element={<ItemListContainer greeting = {'Café de Especialidad'} /> }/>
             <Route path="/item/:id" element={<ItemDetailContainer /> }/>
             <Route path="/cart" element={<Cart />}/>
-            <Route path="/contact" element={<ContactForm />}/>
+            <Route path="/checkout" element={<ContactForm />}/>
             <Route path="*" element={<h1>404 Not Found</h1>} />
           </Routes>  
         </div>

@@ -1,5 +1,8 @@
+
 import React, { useState } from 'react'
 import './ContactForm.css'
+
+
 
 const ContactForm = () => {
     const [contact, setContact] = useState({
@@ -70,6 +73,8 @@ const ContactForm = () => {
                 <button className='btnContact btn col-3 ' type="submit">Confirmar datos</button>
         
             </form>
+
+
         </div>
             
     )
