@@ -1,5 +1,10 @@
 
-import React, { useState } from 'react'
+import { addDoc, collection, doc, getDoc, Timestamp, writeBatch } from '@firebase/firestore'
+import React, { useContext, useState } from 'react'
+import { Link } from 'react-router-dom'
+import Swal from 'sweetalert2'
+import { CartContext } from '../../context/CartContext'
+import { db } from '../../db/firebase-config'
 import './ContactForm.css'
 
 
@@ -25,6 +30,104 @@ const ContactForm = () => {
         e.preventDefault();
         console.log(contact)
     }
+
+
+
+
+    const {cart, getTotal, clearCart} = useContext(CartContext)
+    
+        // creo estado para procesar orden
+    const [processing, setProcessing] = useState(false)
+
+    // creo funcion para confirmar orden
+    const confirmOder = () => {
+        setProcessing(true)
+        const objOrder = {
+            buyer: contact,             
+            items: cart,
+            total: getTotal(),
+            //sincroniza la fecha con firebase
+            date: Timestamp.fromDate(new Date())
+        }
+        
+        // creo batch para actualizar stock
+        const batch = writeBatch(db);
+        const outOfStock = [];
+
+        // si no hay productos sin stock 
+        const executeOrder = () => {
+            if(outOfStock.length === 0){
+                addDoc (collection(db, 'orders'), objOrder)
+                .then(({id}) =>{
+                    batch.commit().then(() => {
+                        
+                            Swal.fire({
+                                position: 'top-center',
+                                icon: 'success',
+                                title: `La orden ${id} se ha procesado con exito. 
+                                        Datos de contacto:
+                                        - ${contact.name}
+                                        - ${contact.email}
+                                        - ${contact.phone}
+                                        - ${contact.address}`,
+                                
+                                showConfirmButton: true,
+                                
+                            })
+                        
+                        clearCart()
+                    })
+                })
+                .finally(() => setProcessing(false))
+                
+            }    
+        }
+
+
+        // recorro el carrito y actualizo el stock
+        objOrder.items.forEach(prod => {
+            getDoc(doc(db, "productos", prod.id))
+                .then (resp =>{
+                    if(resp.data().quantity >= prod.cantidad){
+                        batch.update(doc(db, "productos", prod.id), {
+                            stock: resp.data().quantity - prod.cantidad
+                        })
+                    } else {
+                        outOfStock.push({...resp.data(), id: resp.id})
+                    }
+            }).catch(error => {
+                console.log(error)
+            }).then(() => {
+                executeOrder()
+            })
+            
+        })  
+            
+    }
+
+    // si esta procesando la orden
+    if (processing) {
+        return (
+            <div className='container-fluid '>
+                <h1 className='emptyCart text-center'>Procesando compra...</h1>
+            </div>
+        )
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     return (
         // cargamos el formulario
@@ -74,6 +177,7 @@ const ContactForm = () => {
         
             </form>
 
+            {(!processing && cart.length>0) &&<Link to="/cart"><button className='btnFin' onClick={()=> confirmOder()} >Finalizar compra</button> </Link>}
 
         </div>
             
@@ -84,91 +188,3 @@ const ContactForm = () => {
 export default ContactForm
 
 
-// const ContactForm = ({setContact}) => {
-//     const [name, setName] = useState('');
-//     const [email, setEmail] = useState('');
-//     const [phone, setPhone] = useState('');
-//     const [address, setAddress] = useState('');
-//     const [message, setMessage] = useState('');
-
-
-//     const handleContactForm = (e) => {
-//         e.preventDefault();
-        
-//         //toggleVisibility.current.toggleVisibility();
-//     }
-
-//     // creo objeto con datos de contacto
-//     const objContact ={
-//         name,
-//         email,
-//         phone,
-//         address,
-//         message
-//     }
-
-//     // seteo datos de contacto en estado
-//     setContact(objContact);
-//     setName('');
-//     setEmail('');
-//     setPhone('');
-//     setAddress('');
-//     setMessage('');
-
-//     return (
-//         // cargamos el formulario
-//         <div className="contactForm">
-//             <div>Contacto</div>
-//             <form onSubmit={handleContactForm}>
-//                 <label className='labelContact' >
-//                     Nombre:
-//                     <input
-//                         className='inputContact' 
-//                         type="text" 
-//                         value={name} 
-//                         onChange={(e) => setName(e.target.value)}
-//                     />
-//                 </label>
-//                 <label className='labelContact' >
-//                     Telefono:
-//                     <input
-//                         className='inputContact' 
-//                         type="text" 
-//                         value={phone} 
-//                         onChange={(e) => setPhone(e.target.value)}
-//                     />
-//                 </label>
-//                 <label className='labelContact' >
-//                     e-mail:
-//                     <input
-//                         className='inputContact' 
-//                         type="text" 
-//                         value={email} 
-//                         onChange={(e) => setEmail(e.target.value)}
-//                     />
-//                 </label>
-//                 <label className='labelContact' >
-//                     Direccion:
-//                     <input
-//                         className='inputContact' 
-//                         type="text" 
-//                         value={address} 
-//                         onChange={(e) => setAddress(e.target.value)}
-//                     />
-//                 </label>
-//                 <label className='labelContact' >
-//                     Mensaje:
-//                     <input
-//                         className='inputContact' 
-//                         type="text" 
-//                         value={message} 
-//                         onChange={(e) => setMessage(e.target.value)}
-//                     />
-//                 </label>
-//                 <button className='btnContact' type="submit">Enviar</button>
-//             </form>
-//         </div>
-//     )
-// }
-
-// export default ContactForm
