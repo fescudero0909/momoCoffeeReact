@@ -1,0 +1,37 @@
+.btnContact{
+    border: 1px solid #d9d9d9;
+    padding: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    background: #3e8064;
+    color: #fff;
+    margin-top: 10px;
+    width: 200px;
+    height: 50px;
+    text-size-adjust: 100%;
+    text-align: center;
+}
+
+.btnContact:hover{
+    background: #07830b;
+    color: #fff;
+}
+
+
+.btnFin{
+    background-color: #066c08;
+    color: whitesmoke;
+    text-size-adjust: 100%;
+    text-align: center;
+    border: none;
+    border-radius: 10%;
+    width: 100px;
+    height: 100px;
+    padding: 10px 10px 5px 10px;
+    margin: 10px;
+}
+
+.btnFin:hover{
+    background-color: #07830b;
+    color: whitesmoke;
+}

@@ -37,6 +37,7 @@ export const CartProvider = ({ children }) => {
         //vaciar el carrito
         const clearCart = () => {
             setCart([]);
+            
         }
         
         //eliminar un item del carrito
