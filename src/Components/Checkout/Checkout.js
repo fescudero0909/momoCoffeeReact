@@ -7,6 +7,7 @@ import { db } from '../../db/firebase-config'
 import './Checkout.css'
 
 
+
 // ====== CREO COMPONENTE CHECKOUT  CON LOS DATOS DE CONTACTO ======
 const Checkout = () => {
     const [contact, setContact] = useState({
@@ -31,14 +32,16 @@ const Checkout = () => {
     
     const handleContactForm = (e) => {
         e.preventDefault();
+        Swal.fire({
+            position: 'top-center',
+            icon: 'success',
+            title: 'Datos de contacto guardados',
+            showConfirmButton: false,
+            timer: 1500
+        })
         console.log(contact)
     }
     
-    // const validarEmail = (value) => {
-        
-    //     (value === contact.email) ? console.log('son iguales') : console.log('no son iguales')
-        
-    // }
 
 
     // ========= PROCESO DE ORDEN =========
@@ -72,14 +75,19 @@ const Checkout = () => {
                             Swal.fire({
                                 position: 'top-center',
                                 icon: 'success',
-                                title: `La orden ${id} se ha procesado con exito. 
-                                        Datos de contacto:
+                                title: `La orden ${id} 
+                                        
+                                        se ha procesado con exito.
+                                        
+                                        Datos de contacto: 
                                         
                                         ${contact.name}
                                         ${contact.email}
                                         ${contact.phone}
-                                        ${contact.address}`,
+                                        ${contact.address}
+                                        `,
                                 
+                                text: `Gracias por su compra!`, 
                                 showConfirmButton: true,
                                 
                             })
@@ -132,8 +140,8 @@ const Checkout = () => {
             <div className="contactForm row ">
                     
                 <form className='container-fluid m-1 col-5 ' onSubmit={handleContactForm} >
-                    <div className='text-center'>Completar datos antes de finalizar la compra</div>
-                    
+                    <h3 className='text-center'>Completar datos antes de finalizar la compra</h3>
+                
                     <input className='m-2 col-11'
                         name='name' 
                         type="text"
@@ -155,16 +163,6 @@ const Checkout = () => {
                         placeholder='e-mail' 
                         onChange={handleInputChange}
                     />
-
-                    <input className='m-2 col-11'
-                        name='email2' 
-                        type="text" 
-                        placeholder='repetir e-mail' 
-                        onChange={handleInputChange}
-                        //function={validarEmail}
-                        
-                    />
-                    
                     
                     <input className='m-2 col-11'
                         name='address' 
@@ -185,6 +183,7 @@ const Checkout = () => {
                     </div>
                 </form>
 
+                {/* cargamos el resumen de compra */}
                 <div className='col-5'>
                     <h3 className='text-center' >Resúmen de compra</h3>
                     <table className='table table-bordered  '>

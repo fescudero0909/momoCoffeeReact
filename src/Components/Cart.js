@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext} from 'react'
 import './Cart.css'
 import { Link } from 'react-router-dom';
 import { CartContext } from '../context/CartContext';
@@ -49,12 +49,11 @@ function Cart() {
 
 
                 <div className='col-12'>
-                    <button className='btnCancel' onClick={() => clearCart()} >Cancelar compra</button>
-                    <Link to="/"><button className='btnSeguirComprandoCart'>Seguir comprando</button> </Link>
-                    <Link to="/checkout" ><button className='btnCheckout'>Checkout</button> </Link>
-                    {/* {(!processing && cart.length>0) &&<button className='btnCancelar' onClick={() => clearCart()} >Cancelar compra</button>}
-                    {(!processing && cart.length>0) &&<Link to="/"><button className='btnSeguirComprandoCart'>Seguir comprando</button> </Link>} */}
-                    {/* {(!processing && cart.length>0) &&<Link to=""><button className='btnFin' onClick={()=> confirmOder()} >Finalizar compra</button> </Link>} */}
+                    
+                        <button className='btnCancel' onClick={() => clearCart()} >Cancelar compra</button>
+                        <Link to="/"><button className='btnSeguirComprandoCart'>Seguir comprando</button> </Link>
+                        <Link to="/checkout"><button className='btnCheckout'> Checkout Finalizar </button> </Link>
+                        
                 </div>
                 
             </footer>

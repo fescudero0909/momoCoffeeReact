@@ -1,4 +1,4 @@
-MOMO CAFETERIA
+# MOMO CAFETERIA
 
 Tienda e-commerce de venta de granos de cafe de alta calidad provenientes de distintas partes del mundo y venta de accesorios para baristas.
 
@@ -6,48 +6,50 @@ Es un proyecto realizado con la modalidad SPA, donde permite al usuario interact
 
 Es una versión 0.1.0 incompleta - paso siguiente: crear el servicio de pago
 
+## BREVE DESCRIPCION
+
+A través del siguiente link podrá observar la interacción del usuario con la página: https://i.imgur.com/GFAtvyr.mp4
+## INSTALACION
 
 Este proyecto se realizo con Create React App
+Se debe instalar:
+- react-dom
+- react-icons
+- react-router-dom
 
-En el proyecto puede correrlo con:
+El proyecto puede correrlo con:
 
-- npm run start ó
+- ### npm run start 
 - Abrir [http://localhost:3000](http://localhost:3000) para verlo en el navegador.
 
+## HERRAMIENTAS UTILIZADAS
 
 Construidos con las siguientes herramientas:
+
 - CSS
 - JS
-- react-dom: "^18.2.0"
-- react-icons: "^4.7.1"
-- react-router-dom: "^6.4.5"
 - Boostrap
 - SweetAlert2
 - Firebase
+- Github
 
-
-Autor:
+## AUTOR
 
 - Facundo Escudero
 
-Licencia:
+## LICENCIA
 
 - Proyecto bajo licencia de Facundo Escudero
 
-Expresiones de gratitud:
+
+## EXPRESIONES DE GRATITUD
 
 -Agradecimiento
 
-- Al equipo de  tutores y profesor de Coderhouse
+- Al equipo de tutores y profesor de Coderhouse
 - Si desea puede donar a la siguiente billetera BTC: bc1q85vwanq30vxy6xvpl6khtt5h79h4h9n6qvtmun
 
-
-
-
-
-
-
-# Getting Started with Create React App
+<!-- # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
@@ -116,4 +118,4 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 
 ### `npm run build` fails to minify
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify) -->

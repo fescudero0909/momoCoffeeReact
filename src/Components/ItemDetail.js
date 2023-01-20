@@ -16,6 +16,14 @@ const ItemDetail = ({producto, loading}) => {
 
         
     const onAdd = (cantidad) =>{
+        if(cantidad === 0){
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'No has seleccionado ninguna cantidad',
+            })
+        } else{
+        
         setQuantity(cantidad);
         addToCart(producto, cantidad);
         
@@ -26,7 +34,7 @@ const ItemDetail = ({producto, loading}) => {
                 showConfirmButton: false,
                 timer: 1000
             })
-        
+        }
     }
 
 

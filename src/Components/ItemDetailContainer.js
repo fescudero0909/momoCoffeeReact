@@ -43,10 +43,6 @@ const ItemDetailContainer = () => {
                 : (<h2>Producto no Encontrado</h2>
             )}
             
-            
-            
-            {/* <ItemDetail key={producto.id} producto={producto} loading={loading}  /> */}
-        
         </>
         
     )
